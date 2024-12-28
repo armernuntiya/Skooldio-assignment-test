@@ -85,6 +85,8 @@ function inputPlay() {
 }
 
 function playRound(player, dealer, bet) {
+  player.showHand();
+  dealer.showHand();
   if (player.score() > dealer.score()) {
     console.log("You won!!!, received ", bet, " chips");
     player.chips += bet;
@@ -123,10 +125,10 @@ function main() {
     dealer.draw(deck);
     dealer.draw(deck);
 
-    playRound(player, dealer, draw, bet);
+    playRound(player, dealer, bet);
 
     console.log("Wanna play more (Yes/No)?");
-    play = inputPlay;
+    play = inputPlay();
   }
   console.log("You got total ", player.chips, " chips");
 }
